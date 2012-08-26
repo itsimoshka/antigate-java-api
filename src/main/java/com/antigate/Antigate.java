@@ -1,7 +1,7 @@
 package com.antigate;
 
 /**
- * @author igor.timoshko
+ * @author itsimoshka
  */
 public class Antigate {
 }
