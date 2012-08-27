@@ -24,7 +24,7 @@ import java.nio.charset.Charset;
  */
 public class Antigate {
 
-    public static void sendFile(final String filePath) throws IOException, AntigateException {
+    public static String sendFile(final String filePath) throws IOException, AntigateException {
 
         HttpClient client = new DefaultHttpClient();
         client.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
@@ -33,26 +33,23 @@ public class Antigate {
         MultipartEntity entity = new MultipartEntity( HttpMultipartMode.BROWSER_COMPATIBLE );
 
         File file = new File(filePath);
-        System.out.println("file created");
         entity.addPart( "file", new FileBody(( file ), "application/zip" ));
 
         try {
-            entity.addPart( "key", new StringBody(AntigateConfig.getKey(), "text/plain",
+            entity.addPart( "key", new StringBody(AntigateConfig.getKey(), "text/plain",//TODO config exception
                     Charset.forName("UTF-8")));
             entity.addPart( "method", new StringBody( "post" , "text/plain",
                     Charset.forName("UTF-8")));
-            System.out.println("entity created");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
-        AntigateParser.parseCaptchaKey(client.execute(post).getEntity());
-
         post.setEntity( entity );
 
-// Here we go!
-
+        String captchaKey = AntigateParser.parseResponse(client.execute(post).getEntity());
 
         client.getConnectionManager().shutdown();
+
+        return captchaKey;
     }
 }
