@@ -1,7 +1,7 @@
 package com.antigate.execption;
 
 /**
- * @author igor.timoshko
+ * @author itsimoshka
  */
 public class AntigateException extends Exception {
     private ErrorCode errorCode;
