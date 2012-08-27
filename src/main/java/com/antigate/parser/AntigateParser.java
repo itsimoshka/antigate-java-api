@@ -9,21 +9,19 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 /**
- * @author igor.timoshko
+ * @author itsimoshka
  */
 public class AntigateParser {
 
-    public static String parseCaptchaKey(HttpEntity httpEntity) throws IOException, AntigateException {
+    public static String parseResponse(HttpEntity response) throws IOException, AntigateException {
 
+        String responseText = EntityUtils.toString(response, "UTF-8");
 
-            String response = EntityUtils.toString(httpEntity, "UTF-8");
-        System.out.println(response);
-
-        if (response != null) {
-            if (response.startsWith(AntigateConstants.OK_PREFIX)) {
-                return response.substring(AntigateConstants.OK_PREFIX.length(), response.length() - 1);
+        if (responseText != null) {
+            if (responseText.startsWith(AntigateConstants.OK_PREFIX)) {
+                return responseText.substring(AntigateConstants.OK_PREFIX.length(), responseText.length());
             } else {
-                ErrorCode errorCode = ErrorCode.valueOf(response);
+                ErrorCode errorCode = ErrorCode.valueOf(responseText);
                 try {
                     throw new AntigateException(errorCode);
                 } catch (IllegalArgumentException e) {
