@@ -52,4 +52,8 @@ public enum ErrorCode {
     ErrorCode(final String code) {
         this.code = code;
     }
+
+    public String getCode() {
+        return code;
+    }
 }
