@@ -15,7 +15,7 @@ public class AntigateTest {
     @Test
     public void sendFileTest() {
         try {
-            AntigateConfig.setKey("2170596c4b629bb7064a64a7b6f8b30d");
+            AntigateConfig.setKey("");//insert your code here
             System.out.println(Antigate.sendFile("1.png"));
         } catch (IOException e) {
             e.printStackTrace();
