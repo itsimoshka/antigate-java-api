@@ -6,11 +6,11 @@ package com.antigate.config;
 public class AntigateConfig {
     private static String key;
 
-    public static String getKey() {
+    public String getKey() {
         return key;
     }
 
-    public static void setKey(String key) {
+    public void setKey(String key) {
         AntigateConfig.key = key;
     }
 }

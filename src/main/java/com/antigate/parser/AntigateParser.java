@@ -13,7 +13,27 @@ import java.io.IOException;
  */
 public class AntigateParser {
 
-    public static String parseResponse(HttpEntity response) throws IOException, AntigateException {
+    public static String parseSendFileResponse(HttpEntity response) throws IOException, AntigateException {
+
+        String responseText = EntityUtils.toString(response, "UTF-8");
+
+        if (responseText != null) {
+            if (responseText.startsWith(AntigateConstants.OK_PREFIX)) {
+                return responseText.substring(AntigateConstants.OK_PREFIX.length(), responseText.length());
+            } else {
+                ErrorCode errorCode = ErrorCode.valueOf(responseText);
+                try {
+                    throw new AntigateException(errorCode);
+                } catch (IllegalArgumentException e) {
+                    throw new AntigateException(ErrorCode.UNKNOWN_EXCEPTION);
+                }
+            }
+        } else {
+            throw new AntigateException(ErrorCode.UNKNOWN_EXCEPTION);
+        }
+
+    }
+    public static String parseGetStatusResponse(HttpEntity response) throws IOException, AntigateException {
 
         String responseText = EntityUtils.toString(response, "UTF-8");
 
