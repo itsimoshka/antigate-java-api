@@ -1,7 +1,7 @@
 package com.antigate;
 
 import com.antigate.config.AntigateConfig;
-import com.antigate.execption.AntigateException;
+import com.antigate.exception.AntigateException;
 import com.antigate.requests.GetCaptchaStatusRequest;
 import com.antigate.requests.SendFileRequest;
 import com.antigate.responses.GetCaptchaStatusResponse;

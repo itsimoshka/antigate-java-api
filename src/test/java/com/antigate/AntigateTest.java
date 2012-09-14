@@ -3,7 +3,7 @@ package com.antigate;
 
 import com.antigate.config.AntigateConfig;
 import com.antigate.config.DefaultAntigateConfig;
-import com.antigate.execption.AntigateException;
+import com.antigate.exception.AntigateException;
 import com.antigate.response.AntigateCaptchaStatus;
 import com.antigate.responses.GetCaptchaStatusResponse;
 import com.antigate.responses.SendFileResponse;

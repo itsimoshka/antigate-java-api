@@ -1,6 +1,6 @@
 package com.antigate.requests;
 
-import com.antigate.execption.AntigateException;
+import com.antigate.exception.AntigateException;
 import com.antigate.responses.Response;
 
 /**

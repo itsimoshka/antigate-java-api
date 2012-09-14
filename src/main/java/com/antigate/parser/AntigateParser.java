@@ -1,8 +1,8 @@
 package com.antigate.parser;
 
 import com.antigate.config.consts.AntigateConstants;
-import com.antigate.execption.AntigateException;
-import com.antigate.execption.ErrorCode;
+import com.antigate.exception.AntigateException;
+import com.antigate.exception.ErrorCode;
 import org.apache.http.HttpEntity;
 import org.apache.http.util.EntityUtils;
 

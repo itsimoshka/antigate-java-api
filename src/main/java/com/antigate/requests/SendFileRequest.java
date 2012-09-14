@@ -3,8 +3,8 @@ package com.antigate.requests;
 import com.antigate.client.AntigateClient;
 import com.antigate.config.AntigateConfig;
 import com.antigate.config.consts.AntigateConstants;
-import com.antigate.execption.AntigateException;
-import com.antigate.execption.ErrorCode;
+import com.antigate.exception.AntigateException;
+import com.antigate.exception.ErrorCode;
 import com.antigate.parser.AntigateParser;
 import com.antigate.responses.SendFileResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -78,7 +78,7 @@ public class SendFileRequest implements Request<SendFileResponse> {
                 addPartToEntity(entity, "calc", "0");
             }
 
-            addPartToEntity(entity, "min_len",String.valueOf(config.getMinLength()));
+            addPartToEntity(entity, "min_len", String.valueOf(config.getMinLength()));
             addPartToEntity(entity, "max_len",String.valueOf(config.getMaxLength()));
             if (config.isRussian()) {
                 addPartToEntity(entity, "is_russian", "1");
