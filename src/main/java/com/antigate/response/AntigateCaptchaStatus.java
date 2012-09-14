@@ -5,5 +5,5 @@ package com.antigate.response;
  */
 public enum AntigateCaptchaStatus {
     CAPCHA_NOT_READY,
-
+    OK
 }
