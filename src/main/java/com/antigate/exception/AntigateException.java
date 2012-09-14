@@ -1,4 +1,4 @@
-package com.antigate.execption;
+package com.antigate.exception;
 
 /**
  * @author itsimoshka

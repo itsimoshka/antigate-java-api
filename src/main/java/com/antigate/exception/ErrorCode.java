@@ -1,4 +1,4 @@
-package com.antigate.execption;
+package com.antigate.exception;
 
 /**
  * @author itsimoshka
@@ -47,6 +47,10 @@ public enum ErrorCode {
      * There is not JPEG, GIF or PNG format
      */
     ERROR_IMAGE_TYPE_NOT_SUPPORTED("ERROR_IMAGE_TYPE_NOT_SUPPORTED"),
+    /**
+     * There is captcha's ID format. Must include only digits
+     */
+    ERROR_WRONG_ID_FORMAT("ERROR_WRONG_ID_FORMAT"),
     UNKNOWN_EXCEPTION("UNKNOWN_EXCEPTION");
     private String code;
     ErrorCode(final String code) {
