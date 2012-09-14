@@ -41,12 +41,7 @@ public class AntigateParser {
             if (responseText.startsWith(AntigateConstants.OK_PREFIX)) {
                 return responseText.substring(AntigateConstants.OK_PREFIX.length(), responseText.length());
             } else {
-                ErrorCode errorCode = ErrorCode.valueOf(responseText);
-                try {
-                    throw new AntigateException(errorCode);
-                } catch (IllegalArgumentException e) {
-                    throw new AntigateException(ErrorCode.UNKNOWN_EXCEPTION);
-                }
+                return null;
             }
         } else {
             throw new AntigateException(ErrorCode.UNKNOWN_EXCEPTION);
