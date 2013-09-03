@@ -15,14 +15,14 @@ Usage
 -----
 
 1. Create config object. You can use default implementation:  
-    AntigateConfig config = new DefaultAntigateConfig();
+    <pre>AntigateConfig config = new DefaultAntigateConfig();</pre>
 2. Set your code:  
-    config.setKey("your-code-here");
+    <pre>config.setKey("your-code-here");</pre>
 3. Create AntigateFacade:  
-    AntigateFacade antigate = new AntigateFacade(config);
+    <pre>AntigateFacade antigate = new AntigateFacade(config);</pre>
 4. Send captcha file and get responce:  
-    SendFileResponse sendFileResponse = antigate.sendFile(new URL("your-url-here"));
+    <pre>SendFileResponse sendFileResponse = antigate.sendFile(new URL("your-url-here"));</pre>
 5. Get captha ID from response:  
-    String captchaID = sendFileResponse.getCaptchaID();
+    <pre>String captchaID = sendFileResponse.getCaptchaID();</pre>
 6. Add get captcha status until you get result:  
-    GetCaptchaStatusResponse getCaptchaStatusResponse = antigate.getCaptchaStatus(captchaID);
+    <pre>GetCaptchaStatusResponse getCaptchaStatusResponse = antigate.getCaptchaStatus(captchaID);</pre>
