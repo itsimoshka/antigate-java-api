@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class AntigateParser {
 
-    public static String parseSendFileResponse(HttpEntity response) throws IOException, AntigateException {
+    public static String parseSendFileResponse(final HttpEntity response) throws IOException, AntigateException {
 
         String responseText = EntityUtils.toString(response, "UTF-8");
 
@@ -33,7 +33,7 @@ public class AntigateParser {
         }
 
     }
-    public static String parseGetStatusResponse(HttpEntity response) throws IOException, AntigateException {
+    public static String parseGetStatusResponse(final HttpEntity response) throws IOException, AntigateException {
 
         String responseText = EntityUtils.toString(response, "UTF-8");
 

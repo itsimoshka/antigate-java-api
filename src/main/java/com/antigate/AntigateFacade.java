@@ -8,6 +8,7 @@ import com.antigate.responses.GetCaptchaStatusResponse;
 import com.antigate.responses.SendFileResponse;
 
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * @author itsimoshka
@@ -26,9 +27,24 @@ public class AntigateFacade {
      * @throws IOException exception with file
      * @throws AntigateException wrapper exception
      */
-    public SendFileResponse sendFile(final String filePath) throws AntigateException {
+    public SendFileResponse sendFile(final String filePath) throws AntigateException, IOException {
 
         SendFileRequest request = new SendFileRequest(config, filePath);
+        return request.execute();
+
+    }
+
+    /**
+     * Method send captcha file to AntigateFacade.com
+     *
+     * @param fileUrl url to file
+     * @return captcha key from AntigateFacade.com
+     * @throws IOException exception with file
+     * @throws AntigateException wrapper exception
+     */
+    public SendFileResponse sendFile(final URL fileUrl) throws AntigateException, IOException {
+
+        SendFileRequest request = new SendFileRequest(config, fileUrl);
         return request.execute();
 
     }

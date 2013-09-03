@@ -1,6 +1,8 @@
 package com.antigate.exception;
 
 /**
+ * Represent exceptions returned from Antigate.
+ * Descriptions see on Antigate web site
  * @author itsimoshka
  */
 public class AntigateException extends Exception {

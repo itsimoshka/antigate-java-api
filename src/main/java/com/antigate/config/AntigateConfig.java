@@ -3,6 +3,7 @@ package com.antigate.config;
 import com.antigate.config.consts.NumericCaptcha;
 
 /**
+ * Class to store antigate config
  * @author itsimoshka
  */
 public abstract class AntigateConfig {

@@ -9,6 +9,9 @@ import com.antigate.responses.GetCaptchaStatusResponse;
 import com.antigate.responses.SendFileResponse;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URL;
+
 /**
  * @author itsimoshka
  */
@@ -22,7 +25,8 @@ public class AntigateTest {
             AntigateConfig config = new DefaultAntigateConfig();
             config.setKey("");//insert your code here
             AntigateFacade antigate = new AntigateFacade(config);
-            SendFileResponse sendFileResponse = antigate.sendFile("");//insert your captcha file path here
+//            SendFileResponse sendFileResponse = antigate.sendFile("1.png");//insert your captcha file path here
+            SendFileResponse sendFileResponse = antigate.sendFile(new URL(""));//insert your captcha file url here
             String captchaID = sendFileResponse.getCaptchaID();
 
             int attempts = 1;
@@ -44,6 +48,8 @@ public class AntigateTest {
         } catch (AntigateException e) {
             System.out.println(e.getErrorCode());
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
