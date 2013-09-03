@@ -14,15 +14,15 @@ Installation
 Usage
 -----
 
-1. Create config object. You can use default implementation:
+1. Create config object. You can use default implementation:  
     AntigateConfig config = new DefaultAntigateConfig();
-2. Set your code:
+2. Set your code:  
     config.setKey("your-code-here");
-3. Create AntigateFacade:
+3. Create AntigateFacade:  
     AntigateFacade antigate = new AntigateFacade(config);
-4. Send captcha file and get responce:
+4. Send captcha file and get responce:  
     SendFileResponse sendFileResponse = antigate.sendFile(new URL("your-url-here"));
-5. Get captcha ID from response:
+5. Get captha ID from response:  
     String captchaID = sendFileResponse.getCaptchaID();
-6. Get captcha status until you get result:
+6. Add get captcha status until you get result:  
     GetCaptchaStatusResponse getCaptchaStatusResponse = antigate.getCaptchaStatus(captchaID);
